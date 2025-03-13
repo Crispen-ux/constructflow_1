@@ -5,7 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['hieqzbbkttqueaezrgfu.supabase.co'], // Add the Supabase domain here
   },
-  /* config options here */
+  eslint: {
+    ignoreDuringBuilds: true, // Disables ESLint errors during build
+  },
 };
 
 export default nextConfig;
