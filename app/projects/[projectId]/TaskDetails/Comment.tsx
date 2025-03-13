@@ -1,5 +1,5 @@
 import { secondaryBtnStyles, successBtnStyles } from '@/app/commonStyles';
-import { UserAvatar } from '@/components/Avatar';
+//import { UserAvatar } from '@/components/Avatar';
 import TextEditor from '@/components/TextEditor';
 import { Button } from '@/components/ui/button';
 import {
@@ -55,7 +55,8 @@ export const Comment: FC<Props> = ({ comment }) => {
       });
 
       setEditable(false);
-    } catch (error) {
+    } catch (_error) {
+      console.error("Fetch failed:", error);
       toast({
         title: 'Failed to update comment',
         variant: 'destructive',
@@ -81,6 +82,7 @@ export const Comment: FC<Props> = ({ comment }) => {
         ],
       });
     } catch (error) {
+      console.error("Fetch failed:", error);
       toast({
         title: 'Failed to delete comment',
         variant: 'destructive',

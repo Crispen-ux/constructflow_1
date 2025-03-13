@@ -27,7 +27,7 @@ export const StackedColumnChart = ({ data, config, colors }: Props) => {
         <ChartTooltip content={<ChartTooltipContent />} />
         <Legend wrapperStyle={{ paddingTop: '20px' }} />
 
-        {keys.map((dataKey, i) => (
+        {keys.map((dataKey) => (
           <Bar
             key={dataKey}
             dataKey={dataKey}

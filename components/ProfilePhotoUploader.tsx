@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { Loader2, Plus, Upload } from 'lucide-react';
+import { Loader2, Upload } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { primaryBtnStyles } from '@/app/commonStyles';

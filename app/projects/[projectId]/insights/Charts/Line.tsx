@@ -32,7 +32,7 @@ export const LineChart = ({ data, config, colors }: Props) => {
         <CartesianGrid />
         <ChartTooltip content={<ChartTooltipContent />} />
         <Legend wrapperStyle={{ paddingTop: '20px' }} />
-        {keys.map((dataKey, i) => (
+        {keys.map((dataKey) => (
           <Line
             type="monotone"
             key={dataKey}

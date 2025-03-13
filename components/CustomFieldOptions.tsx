@@ -153,7 +153,7 @@ export const CustomFieldOptions = ({
                 items={options}
                 strategy={verticalListSortingStrategy}
               >
-                {options.map((item, i) => (
+                {options.map((item) => (
                   <OptionItem
                     key={item.id}
                     field={field}

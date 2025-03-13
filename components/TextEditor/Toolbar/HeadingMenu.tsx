@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ToolbarIconButton } from './IconButton';
+
 import {
   ChevronDown,
   Heading,

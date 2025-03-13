@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToolbarIconButton } from './IconButton';
+
 import {
   AlignCenter,
   AlignJustify,

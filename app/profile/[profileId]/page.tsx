@@ -1,4 +1,4 @@
-import { users, type IUser } from '@/utils/users';
+import { users } from '@/utils/users';
 import { createClient } from '@/utils/supabase/server';
 import { notFound } from 'next/navigation';
 import { ProfileView } from './ProfileView';
@@ -8,7 +8,7 @@ async function getUser(profileId: string): Promise<IUser> {
     const user = await users.getUser(profileId);
     if (!user) throw new Error('User not found');
     return user;
-  } catch (error) {
+  } catch {
     notFound();
   }
 }

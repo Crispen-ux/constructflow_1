@@ -2,7 +2,7 @@
 import { useTaskDetails } from '../Board/TaskDetailsContext';
 import { useTaskQueries } from '@/hooks/useTaskQueries';
 import { Button } from '@/components/ui/button';
-import { Delete, Loader2, Trash } from 'lucide-react';
+import {  Trash } from 'lucide-react';
 import { useProjectQueries } from '@/hooks/useProjectQueries';
 import { useParams } from 'next/navigation';
 import { toast } from '@/components/ui/use-toast';

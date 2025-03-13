@@ -1,5 +1,5 @@
 import { createClient } from '@/utils/supabase/server';
-import { users, type IUser } from '@/utils/users';
+import { users } from '@/utils/users';
 import { ProfileForm } from './ProfileForm';
 import { redirect } from 'next/navigation';
 

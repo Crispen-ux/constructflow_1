@@ -53,6 +53,7 @@ export function ProjectSettingsForm({ project }: ProjectSettingsFormProps) {
         description: 'Project settings updated successfully',
       });
     } catch (error) {
+      console.error("Fetch failed:", error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -72,6 +73,7 @@ export function ProjectSettingsForm({ project }: ProjectSettingsFormProps) {
       });
       router.push('/projects');
     } catch (error) {
+      console.error("Fetch failed:", error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -86,6 +88,7 @@ export function ProjectSettingsForm({ project }: ProjectSettingsFormProps) {
       useAccessStore.getState().reset();
       router.push('/projects');
     } catch (error) {
+      console.error("Fetch failed:", error);
       toast({
         variant: 'destructive',
         title: 'Error',

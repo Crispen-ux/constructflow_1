@@ -110,6 +110,7 @@ export const Project = () => {
       // Update local state
       updateTaskPriority?.(selectedTask.id, priority);
     } catch (error) {
+      console.error("Fetch failed:", error);
       toast({
         title: 'Failed to update priority',
         variant: 'destructive',

@@ -9,7 +9,7 @@ import { StackedAreaChart } from './Charts/StackedArea';
 import { StackedBarChart } from './Charts/StackedBar';
 import { StackedColumnChart } from './Charts/StackedColumn';
 import { generateChartData } from './functions';
-import { SimpleChart } from './SimpleChart';
+
 
 const chartConfig = {} satisfies ChartConfig;
 
