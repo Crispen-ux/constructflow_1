@@ -15,6 +15,14 @@ import { useEffect } from 'react';
 import getSuggestion from './Toolbar/Mention/suggestion';
 import { ToolBar } from './Toolbar/ToolBar';
 
+// ✅ Fix: Import SuggestionProps correctly
+import type { SuggestionProps, SuggestionKeyDownProps } from '@tiptap/suggestion';
+
+interface IUser {
+  id: string;
+  label: string;
+}
+
 interface Props {
   isEditable?: boolean;
   content: string;
@@ -52,7 +60,6 @@ const TextEditor = ({
           class: 'pl-8',
         },
       }),
-
       OrderedList.configure({
         HTMLAttributes: {
           class: 'pl-8',
@@ -79,7 +86,27 @@ const TextEditor = ({
             `${options.suggestion.char}${node.attrs.label ?? node.attrs.id}`,
           ];
         },
-        suggestion: getSuggestion(users),
+        suggestion: {
+          items: ({ query }: { query: string }) =>
+            users.filter((user) =>
+              user.label?.toLowerCase().includes(query.toLowerCase())
+            ),
+          render: () => ({
+            onStart: (props: SuggestionProps<any, any>) => {
+              // your onStart handler implementation
+            },
+            onUpdate: (props: SuggestionProps<any, any>) => {
+              // your onUpdate handler implementation
+            },
+            onKeyDown: (props: SuggestionKeyDownProps) => {
+              // Ensure the return type is a boolean
+              return true; // Or a condition to return true/false
+            },
+            onExit: () => {
+              // your onExit handler implementation
+            },
+          }),
+        },
       }),
     ],
     editable: isEditable,
@@ -90,7 +117,7 @@ const TextEditor = ({
           isEditable ? 'border-t-0' : 'border-0'
         } border-gray-200 dark:border-gray-800 rounded-b-sm ${
           isEditable ? 'min-h-[180px]' : ''
-        } w-full  focus:ring-0 focus:outline-none text-xs`,
+        } w-full focus:ring-0 focus:outline-none text-xs`,
       },
     },
     onUpdate: ({ editor }) => {
@@ -106,7 +133,6 @@ const TextEditor = ({
 
   useEffect(() => {
     editor?.setEditable(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEditable]);
 
   return (
