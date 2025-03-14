@@ -20,7 +20,7 @@ import { useParams } from 'next/navigation';
 interface Props {
   title: string;
   triggerLabel?: string;
-  triggerBtn?: ReactElement;
+  triggerBtn?: ReactElement<{ onClick?: () => void }>; // Explicitly typing the `onClick` prop
   handleSubmit?: (data: Omit<ICustomFieldData, 'id'>) => void;
   action?: 'create-new-project' | 'update-project';
 }
@@ -49,7 +49,7 @@ export const CreateCustomFieldOptionModal = ({
     >
       <DialogTrigger asChild>
         {triggerBtn ? (
-          React.cloneElement(triggerBtn, { onClick: openModal })
+          React.cloneElement(triggerBtn, { onClick: openModal }) // Now TypeScript knows `triggerBtn` can have `onClick`
         ) : can?.(ProjectAction.UPDATE_OPTIONS) ? (
           <Button className={cn(successBtnStyles)} onClick={openModal}>
             {triggerLabel}
