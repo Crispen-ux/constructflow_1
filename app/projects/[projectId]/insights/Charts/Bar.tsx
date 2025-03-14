@@ -15,8 +15,14 @@ import {
   YAxis,
 } from 'recharts';
 
+// Define the type for the data
+interface ChartData {
+  name: string;
+  [key: string]: string | number;  // Allow other dynamic keys, which represent the data for each bar
+}
+
 interface Props {
-  data: any[];
+  data: ChartData[]; // Use the specific ChartData type for data
   config: ChartConfig;
   colors: { [label: string]: string };
 }

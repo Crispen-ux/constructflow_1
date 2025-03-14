@@ -59,6 +59,7 @@ export const Projects = ({
         description: 'Project closed successfully',
       });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -85,6 +86,7 @@ export const Projects = ({
         description: 'Project reopened successfully',
       });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -104,6 +106,7 @@ export const Projects = ({
       );
       toast({ title: 'Success', description: 'Project deleted successfully' });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',

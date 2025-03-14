@@ -28,7 +28,7 @@ export function hslModifyLightness(hsl: string, newLightness: number) {
   });
   
   export function getAllKeysExceptLabelKey(
-    data: any[],
+    data: Record<string, unknown>[],
     labelKey: string
   ): string[] {
     const keysSet = new Set<string>();
@@ -46,7 +46,7 @@ export function hslModifyLightness(hsl: string, newLightness: number) {
   
   type Identifiable = {
     id: string;
-    [key: string]: any;
+    [key: string]: unknown;
   };
   
   export function compareArrays<T extends Identifiable>(

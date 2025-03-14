@@ -15,7 +15,7 @@ import { useParams } from 'next/navigation';
 export const TaskDescription = () => {
   const params = useParams();
   const { selectedTask } = useTaskDetails();
-  const { task, updateDescription } = useTaskQueries(selectedTask?.id || '');
+  const { task, updateDescription } = useTaskQueries(selectedTask?.id ?? '');
   const { members } = useProjectQueries(params.projectId as string);
   const [description, setDescription] = useState(task?.description || '');
   const [editable, setEditable] = useState(false);
@@ -44,14 +44,14 @@ export const TaskDescription = () => {
       <div className="flex items-center justify-end bg-sky-100 dark:bg-slate-900 rounded-t border-b border-sky-200 dark:border-blue-900 overflow-x-auto px-4 py-2">
         <div className="flex justify-between items-center gap-2 text-sm">
           <UserCard
-            id={selectedTask?.creator?.id!}
+            id={selectedTask?.creator?.id ?? ''}
             name={selectedTask?.creator?.name || ''}
             avatarUrl={selectedTask?.creator?.avatar || ''}
             description={task?.creator?.description}
             links={task?.creator?.links}
           />
           <span className="text-gray-500 text-xs">
-            opened {formatRelativeTime(task?.created_at!)}
+            opened {formatRelativeTime(task?.created_at ?? new Date())}
           </span>
         </div>
         <Button

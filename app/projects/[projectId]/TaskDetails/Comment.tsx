@@ -55,8 +55,8 @@ export const Comment: FC<Props> = ({ comment }) => {
       });
 
       setEditable(false);
-    } catch (_error) {
-      console.error("Fetch failed:", error);
+    } catch (error) {
+      console.error(error);
       toast({
         title: 'Failed to update comment',
         variant: 'destructive',

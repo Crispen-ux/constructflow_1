@@ -11,8 +11,13 @@ import {
   Legend,
 } from 'recharts';
 
+interface ChartData {
+  name: string;
+  count: number;
+}
+
 interface Props {
-  data: any[];
+  data: ChartData[];  // Use the ChartData type here instead of 'any[]'
   colors: { [label: string]: string };
 }
 

@@ -36,16 +36,24 @@ export function UserMenu({ user }: UserMenuProps) {
       await auth.signOut();
       router.push('/login');
       router.refresh();
-    } catch (error: any) {
-      console.error('Sign out error:', error);
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: error.message || 'Failed to sign out. Please try again.',
-      });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Sign out error:', error);
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: error.message || 'Failed to sign out. Please try again.',
+        });
+      } else {
+        console.error('Sign out error:', error);
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: 'An unknown error occurred. Please try again.',
+        });
+      }
     }
   };
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

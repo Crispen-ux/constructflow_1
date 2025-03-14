@@ -133,13 +133,15 @@ export const Project = () => {
 
     const updates: DateUpdates = {
       startDate:
-        type === 'startDate'
-          ? date?.toISOString() || null
-          : (task?.startDate as any) || null,
-      endDate:
-        type === 'endDate'
-          ? date?.toISOString() || null
-          : (task?.endDate as any) || null,
+  type === 'startDate'
+    ? (date ? date.toISOString() : null) // Convert Date to ISO string, or return null
+    : (task?.startDate ? new Date(task.startDate).toISOString() : null), // Convert Date to ISO string
+
+    endDate:
+    type === 'endDate'
+      ? (date ? date.toISOString() : null) // Convert Date to ISO string, or return null
+      : (task?.endDate ? new Date(task.endDate).toISOString() : null), // Convert Date to ISO string
+  
     };
     updateDates(updates);
   };

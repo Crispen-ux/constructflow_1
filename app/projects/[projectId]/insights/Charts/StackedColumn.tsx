@@ -8,8 +8,14 @@ import { grayFieldColor } from '@/consts/colors';
 import { getAllKeysExceptLabelKey } from '@/lib/helpers';
 import { Bar, BarChart, CartesianGrid, Legend, XAxis, YAxis } from 'recharts';
 
+// Define the type for the data
+interface ChartData {
+  name: string;
+  [key: string]: string | number;  // Allow dynamic keys, representing the data for each bar
+}
+
 interface Props {
-  data: any[];
+  data: ChartData[]; // Use the specific ChartData type for data
   config: ChartConfig;
   colors: { [label: string]: string };
 }

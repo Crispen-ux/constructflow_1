@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { primaryBtnStyles } from '@/app/commonStyles';
 import { createClient } from '@/utils/supabase/client';
 import { toast } from './ui/use-toast';
+import { PostgrestError } from '@supabase/supabase-js'; // Import the Supabase error type
 
 interface ProfilePhotoUploaderProps {
   currentPhotoUrl?: string;
@@ -80,12 +81,12 @@ export const ProfilePhotoUploader: React.FC<ProfilePhotoUploaderProps> = ({
         title: 'Success',
         description: 'Profile photo updated successfully.',
       });
-    } catch (error: any) {
+    } catch (error: PostgrestError | unknown) {
       console.error('Error uploading file:', error);
       toast({
         variant: 'destructive',
         title: 'Error uploading file',
-        description: error.message,
+        description: (error as PostgrestError).message || 'Unknown error occurred',
       });
     } finally {
       setIsUploading(false);

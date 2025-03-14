@@ -45,7 +45,7 @@ const CommentForm = () => {
       setComment('');
       setResetKey((prev) => prev + 1);
     } catch (error) {
-      console.error("Fetch failed:", error);
+        console.error("Fetch failed:", error);
       toast({
         title: 'Failed to add comment',
         variant: 'destructive',

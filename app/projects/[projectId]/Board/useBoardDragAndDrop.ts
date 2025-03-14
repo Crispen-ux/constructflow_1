@@ -208,6 +208,7 @@ export const useBoardDragAndDrop = () => {
         ),
       });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -279,6 +280,7 @@ export const useBoardDragAndDrop = () => {
         ),
       });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -314,6 +316,7 @@ export const useBoardDragAndDrop = () => {
         ),
       });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -423,6 +426,7 @@ export const useBoardDragAndDrop = () => {
         ),
       });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',
@@ -463,6 +467,7 @@ export const useBoardDragAndDrop = () => {
         ),
       });
     } catch (error) {
+      console.error(error);
       toast({
         variant: 'destructive',
         title: 'Error',

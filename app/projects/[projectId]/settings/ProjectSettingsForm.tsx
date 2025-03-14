@@ -33,7 +33,7 @@ export function ProjectSettingsForm({ project }: ProjectSettingsFormProps) {
   });
   const { toast } = useToast();
   const router = useRouter();
-  const { can, role, isLoading } = useProjectAccess({
+  const { can, isLoading } = useProjectAccess({
     projectId: project.id,
   });
 

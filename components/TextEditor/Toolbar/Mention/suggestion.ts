@@ -1,11 +1,11 @@
 import { ReactRenderer } from '@tiptap/react';
 import tippy, { Instance, Props } from 'tippy.js';
 import MentionList, { MentionListRef } from './MentionList';
-
+import { Editor } from '@tiptap/react'
 interface SuggestionProps {
-  editor: any;
+  editor: Editor; // Use Editor type instead of any
   query: string;
-  range: any;
+  range: Range;
   items: Partial<IUser>[];
   clientRect?: () => DOMRect;
 }
@@ -85,4 +85,4 @@ const getSuggestion = (users: Partial<IUser>[]) => ({
   },
 });
 
-export default getSuggestion as any;
+export default getSuggestion ;
